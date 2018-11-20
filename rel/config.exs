@@ -27,14 +27,16 @@ release :ewallet do
     admin_panel: :permanent,
     ewallet: :permanent,
     ewallet_api: :permanent,
+    ewallet_config: :permanent,
     ewallet_db: :permanent,
     local_ledger: :permanent,
     local_ledger_db: :permanent,
-    url_dispatcher: :permanent
+    url_dispatcher: :permanent,
   ]
 
   set commands: [
+    "config": "rel/commands/config.sh",
     "initdb": "rel/commands/initdb.sh",
-    "seed": "rel/commands/seed.sh"
+    "seed": "rel/commands/seed.sh",
   ]
 end

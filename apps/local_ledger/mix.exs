@@ -33,10 +33,11 @@ defmodule LocalLedger.Mixfile do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:local_ledger_db, in_umbrella: true},
       {:deferred_config, "~> 0.1.0"},
+      {:ewallet_config, in_umbrella: true},
+      {:local_ledger_db, in_umbrella: true},
       {:quantum, ">= 2.2.6"},
-      {:timex, "~> 3.0"}
+      {:timex, "~> 3.0"},
     ]
   end
 end
