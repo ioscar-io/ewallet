@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  ewallet:
+    image: omisegoimages/ewallet-builder:stable
+    environment:
+      DATABASE_URL: postgresql://postgres:5_AzPT1tT8fC-YcNAdYHZqMVHCuneUdt@postgres:5432/ewallet
+      LOCAL_LEDGER_DATABASE_URL: postgresql://postgres:5_AzPT1tT8fC-YcNAdYHZqMVHCuneUdt@postgres:5432/local_ledger
+      EWALLET_SECRET_KEY: /u3rqpJ9fLvEqndjidu2+gvv0XiNelLFyhK4BE+VK8E=
+      LOCAL_LEDGER_SECRET_KEY: 8Fu1fi5MMSQm8j7dL30RZukEo+uewxqaUS7FMCHST8E=
+    user: root
+    volumes:
+      - .:/app
+      - ewallet-deps:/app/deps
+      - ewallet-builds:/app/_build
+      - ewallet-node:/app/apps/admin_panel/assets/node_modules
+    working_dir: /app
+    command:
+      - mix
+      - omg.server
+
+volumes:
+  ewallet-deps:
+  ewallet-builds:
+  ewallet-node:
