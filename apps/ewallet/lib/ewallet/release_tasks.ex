@@ -108,6 +108,7 @@ defmodule EWallet.ReleaseTasks do
 
   def config_update(key, value) do
     Enum.each(@config_start_apps, &Application.ensure_all_started/1)
+
     case Config.update([{key, value}]) do
       {:ok, [{key, :ok}]} ->
         IO.puts("Successfully updated #{key} to #{value}")
